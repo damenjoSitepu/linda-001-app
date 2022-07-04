@@ -20,7 +20,7 @@
                         @if($user->photo === 'default.jpg')
                         <img class="rounded" src="{{ asset("assets/img/user.png") }}" alt="">
                         @else 
-                        <img class="rounded" src="{{ asset("storage/{$user->photo}") }}" alt="">
+                        <img class="rounded" src="{{ $user->photo }}" alt="">
                         @endif
 
                         <div class="text-start ps-5">

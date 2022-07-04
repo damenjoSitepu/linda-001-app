@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductProcess extends Controller
 {
@@ -112,7 +113,7 @@ class ProductProcess extends Controller
     {
         // Store Photonya
         if ($request->file('photo')) {
-            $data = $request->file('photo')->store('products_img');
+            $data = Cloudinary::upload($request->file('photo')->getRealPath())->getSecurePath();
             $this->Product->updatePhoto($produk_id, $data);
         }
 

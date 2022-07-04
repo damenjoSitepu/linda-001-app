@@ -2,7 +2,7 @@
     @if($getPesan->photo == 'document.png')
     <img style="width: 100%; height: 400px; border-radius: 0; object-fit:contain;" src="{{ asset("assets/document_img/document.png") }}" class="bukti-pembayaran mt-4 rounded" alt="">
     @else 
-    <img style="width: 100%; height: 400px; border-radius: 0; object-fit:contain;" src="{{ asset("storage/$getPesan->photo") }}" class="bukti-pembayaran mt-4 rounded" alt="">
+    <img style="width: 100%; height: 400px; border-radius: 0; object-fit:contain;" src="{{ $getPesan->photo }}" class="bukti-pembayaran mt-4 rounded" alt="">
     @endif
 </div>
 

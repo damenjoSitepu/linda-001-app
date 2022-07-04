@@ -9,7 +9,7 @@
         @if($box->photo == 'default.jpg')
         <img class="images me-4 rounded" src="{{ asset("assets/user_img/default.jpg") }}" alt="">
         @else 
-        <img class="images me-4 rounded" src="{{ asset("storage/$box->photo") }}" alt="">
+        <img class="images me-4 rounded" src="{{ $box->photo }}" alt="">
         @endif
         <div class="loc1 me-4">
             <h4 class="">{{ $box->nama_produk}}</h4>

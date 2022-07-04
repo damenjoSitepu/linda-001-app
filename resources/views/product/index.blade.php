@@ -14,7 +14,7 @@
                 @if ($produk->photo == 'default.jpg')
                 <img src="{{ asset("assets/user_img/product.png") }}" alt="">
                 @else 
-                <img src="{{ asset ("storage/{$produk->photo}") }}" alt="">
+                <img src="{{ $produk->photo }}" alt="">
                 @endif
          
 

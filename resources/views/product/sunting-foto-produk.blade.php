@@ -6,7 +6,7 @@
         @if($getProduk->photo === 'default.jpg')
         <img class="imageb m-auto d-block img-preview" src="{{ asset('assets/user_img/product.png') }}" alt="">
         @else 
-        <img class="imageb m-auto d-block img-preview" src="{{ asset("storage/{$getProduk->photo}") }}" alt="">
+        <img class="imageb m-auto d-block img-preview" src="{{ $getProduk->photo }}" alt="">
         @endif
     
     <div class="inputs w-25 m-auto my-4">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class UserProcess extends Controller
 {
@@ -29,7 +30,7 @@ class UserProcess extends Controller
     {
         // Store Photonya
         if ($request->file('photo')) {
-            $data = $request->file('photo')->store('users_img');
+            $data = Cloudinary::upload($request->file('photo')->getRealPath())->getSecurePath();
             $this->User->updatePhoto(session()->get('login')['user_id'], $data, 'user');
         }
 

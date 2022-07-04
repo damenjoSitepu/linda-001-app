@@ -9,7 +9,7 @@
           @if($produk->photo === 'default.jpg')
           <img class="rounded" src="{{ asset("assets/user_img/product.png") }}" alt="">
           @else 
-          <img class="rounded" src="{{ asset("storage/{$produk->photo}") }}" alt="">
+          <img class="rounded" src="{{ $produk->photo }}" alt="">
           @endif
         
           <div>

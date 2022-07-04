@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('alamat')->nullable();
             $table->string('no_telepon')->nullable();
             $table->boolean('jenis_kelamin')->nullable();
-            $table->boolean('class')->nullable();
+            $table->integer('class')->default(2);
         });
     }
 

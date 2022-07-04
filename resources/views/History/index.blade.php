@@ -55,15 +55,15 @@
         <!-- akhir search -->
 
         @if ($search == 1)
-            @include ('history.menunggu-konfirmasi-admin')
+            @include ('History.menunggu-konfirmasi-admin')
         @elseif ($search == 2)
-            @include('history.selesai-konfirmasi-admin-1')
+            @include('History.selesai-konfirmasi-admin-1')
         @elseif ($search == 3)
-            @include('history.selesai-dibayarkan')
+            @include('History.selesai-dibayarkan')
         @elseif($search == 4)
-            @include('history.transaksi-berhasil')
+            @include('History.transaksi-berhasil')
         @else 
-            @include('history.menunggu-konfirmasi-admin')
+            @include('History.menunggu-konfirmasi-admin')
         @endif
         
 

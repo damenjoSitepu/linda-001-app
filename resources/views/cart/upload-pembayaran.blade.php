@@ -21,7 +21,7 @@
                 @if($getPesan->photo == 'document.png')
                 <img  class="m-auto d-block img-preview" src="{{ asset('assets/document_img/document.png') }}" alt="">
                 @else 
-                <img  class="m-auto d-block img-preview" src="{{ asset("storage/$getPesan->photo") }}" alt="">
+                <img  class="m-auto d-block img-preview" src="{{ $getPesan->photo }}" alt="">
                 @endif
 
                 <div class="inputs w-25 m-auto my-4">

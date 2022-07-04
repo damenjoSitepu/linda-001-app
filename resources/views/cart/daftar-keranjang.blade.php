@@ -9,7 +9,7 @@
         @if($cart->photo == 'default.jpg')
         <img class="images me-4 rounded" src="{{ asset("assets/user_img/product.png") }}" alt="">
         @else 
-        <img class="images me-4 rounded" src="{{ asset("storage/$cart->photo") }}" alt="">
+        <img class="images me-4 rounded" src="{{ $cart->photo }}" alt="">
         @endif
     
         
