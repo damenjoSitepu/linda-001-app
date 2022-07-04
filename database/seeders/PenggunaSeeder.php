@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UserSeeder extends Seeder
+class PenggunaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user')->insert([
+        DB::table('pengguna')->insert([
             'user_id'       => 1,
             'nama'          => 'Admin',
             'username'      => 'admin',
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
         // Massive Seeding
         for ($i = 2; $i <= 5; $i++) {
-            DB::table('user')->insert([
+            DB::table('pengguna')->insert([
                 'user_id'       => $i,
                 'nama'          => 'Hina' . $i,
                 'username'      => 'hina' . $i,

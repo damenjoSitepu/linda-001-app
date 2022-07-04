@@ -28,19 +28,19 @@ class PesanModel extends Model
     public function getAdminCartHistory($search = 1)
     {
         if ($search == 1)
-            return DB::select("SELECT * FROM pesan INNER JOIN user ON pesan.user_id = user.user_id WHERE status='1'");
+            return DB::select("SELECT * FROM pesan INNER JOIN pengguna ON pesan.user_id = pengguna.user_id WHERE status='1'");
         else if ($search == 2)
-            return DB::select("SELECT * FROM pesan INNER JOIN user ON pesan.user_id = user.user_id WHERE status='2'");
+            return DB::select("SELECT * FROM pesan INNER JOIN pengguna ON pesan.user_id = pengguna.user_id WHERE status='2'");
         else if ($search == 3)
-            return DB::select("SELECT * FROM pesan INNER JOIN user ON pesan.user_id = user.user_id WHERE status='3'");
+            return DB::select("SELECT * FROM pesan INNER JOIN pengguna ON pesan.user_id = pengguna.user_id WHERE status='3'");
         else if ($search == 4)
-            return DB::select("SELECT * FROM pesan INNER JOIN user ON pesan.user_id = user.user_id WHERE status='4'");
+            return DB::select("SELECT * FROM pesan INNER JOIN pengguna ON pesan.user_id = pengguna.user_id WHERE status='4'");
     }
 
     // Mendapatkan detail pesan berdasarkan tipe produk yang sudah selesai dipesan ( 1 )
     public function getCheckedDetailpesan($user_id = '', $pesan_id = '')
     {
-        return DB::select("SELECT *, produk.photo as produkphoto FROM pesan_detail INNER JOIN pesan ON pesan_detail.pesan_id = pesan.pesan_id INNER JOIN produk ON pesan_detail.produk_id = produk.produk_id INNER JOIN user ON pesan.user_id = user.user_id WHERE pesan.pesan_id='{$pesan_id}' AND pesan.user_id='{$user_id}' AND pesan_detail.status=1");
+        return DB::select("SELECT *, produk.photo as produkphoto FROM pesan_detail INNER JOIN pesan ON pesan_detail.pesan_id = pesan.pesan_id INNER JOIN produk ON pesan_detail.produk_id = produk.produk_id INNER JOIN pengguna ON pesan.user_id = pengguna.user_id WHERE pesan.pesan_id='{$pesan_id}' AND pesan.user_id='{$user_id}' AND pesan_detail.status=1");
     }
 
     // Mendapatkan detail pesan berdasarkan tipe produk

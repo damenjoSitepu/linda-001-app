@@ -13,13 +13,13 @@ class UserModel extends Model
     // Mendapat data user berdasarkan nilai dan kolom
     public function getUser($singleData = '', $column = 'user_id')
     {
-        return collect(DB::select("SELECT * FROM user WHERE {$column}='{$singleData}'"))->first();
+        return collect(DB::select("SELECT * FROM pengguna WHERE {$column}='{$singleData}'"))->first();
     }
 
     // Mendapat seluruh data user kecuali admin
     public function getUsers()
     {
-        return DB::select("SELECT * FROM user WHERE class != 1 ORDER BY user.user_id DESC");
+        return DB::select("SELECT * FROM pengguna WHERE class != 1 ORDER BY user.user_id DESC");
     }
 
     // Ubah status user
@@ -28,10 +28,10 @@ class UserModel extends Model
         $getStatus = $this->getUser($user_id)->class;
 
         if ($getStatus == 2) {
-            DB::statement("UPDATE user SET class=3 WHERE user.user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET class=3 WHERE pengguna.user_id='{$user_id}'");
             $status = 1;
         } else {
-            DB::statement("UPDATE user SET class=2 WHERE user.user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET class=2 WHERE pengguna.user_id='{$user_id}'");
             $status = 0;
         }
 
@@ -46,7 +46,7 @@ class UserModel extends Model
         $password       = $data['password'];
         $email          = $data['email'];
 
-        DB::statement("INSERT INTO user(nama,username,password,email,class,photo) VALUES('{$nama}','{$username}','{$password}','{$email}','2','default.jpg')");
+        DB::statement("INSERT INTO pengguna(nama,username,password,email,class,photo) VALUES('{$nama}','{$username}','{$password}','{$email}','2','default.jpg')");
     }
 
     // Untuk Update Photo
@@ -54,7 +54,7 @@ class UserModel extends Model
     {
         if ($class === 'admin') {
         } else {
-            DB::statement("UPDATE user SET photo='{$photo}' WHERE user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET photo='{$photo}' WHERE user_id='{$user_id}'");
         }
     }
 
@@ -66,7 +66,7 @@ class UserModel extends Model
 
         if ($class === 'admin') {
         } else {
-            DB::statement("UPDATE user SET username='{$username}', nama='{$nama}' WHERE user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET username='{$username}', nama='{$nama}' WHERE user_id='{$user_id}'");
         }
     }
 
@@ -80,7 +80,7 @@ class UserModel extends Model
 
         if ($class === 'admin') {
         } else {
-            DB::statement("UPDATE user SET jenis_kelamin='{$jenis_kelamin}', no_telepon='{$no_telepon}', alamat='{$alamat}', email='{$email}' WHERE user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET jenis_kelamin='{$jenis_kelamin}', no_telepon='{$no_telepon}', alamat='{$alamat}', email='{$email}' WHERE user_id='{$user_id}'");
         }
     }
 
@@ -91,7 +91,7 @@ class UserModel extends Model
 
         if ($class === 'admin') {
         } else {
-            DB::statement("UPDATE user SET password='{$password}' WHERE user_id='{$user_id}'");
+            DB::statement("UPDATE pengguna SET password='{$password}' WHERE user_id='{$user_id}'");
         }
     }
 }
