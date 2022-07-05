@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cart;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class CartProcess extends Controller
 {
@@ -51,7 +52,7 @@ class CartProcess extends Controller
 
         // Store Photonya
         if ($request->file('photo')) {
-            $data = $request->file('photo')->store('bukti_img');
+            $data = Cloudinary::upload($request->file('photo')->getRealPath())->getSecurePath();
             $this->Pesan->updatePhoto($user_id, $pesan_id, $data);
         }
 

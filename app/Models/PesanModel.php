@@ -85,7 +85,7 @@ class PesanModel extends Model
         $email      = $data['email'];
         $no_telepon = $data['no_telepon'];
 
-        DB::statement("UPDATE pesan SET email='{$email}', no_telepon='{$no_telepon}', dibuat=CURRENT_DATE(), status='1' WHERE pesan_id='{$pesan_id}'");
+        DB::statement("UPDATE pesan SET email='{$email}', no_telepon='{$no_telepon}', dibuat=CURRENT_DATE, status='1' WHERE pesan_id='{$pesan_id}'");
 
         // Membuat pesan baru
         $this->insertPesan(session()->get('login')['user_id']);
@@ -94,13 +94,13 @@ class PesanModel extends Model
     // Konfirmasi Pesanan ( merubah status pesanannya menjadi 2 )
     public function konfirmasiPesanan($user_id = '', $pesan_id = '')
     {
-        DB::statement("UPDATE pesan SET status='2', dikonfirmasi=CURRENT_DATE() WHERE user_id='{$user_id}' AND pesan_id='{$pesan_id}'");
+        DB::statement("UPDATE pesan SET status='2', dikonfirmasi=CURRENT_DATE WHERE user_id='{$user_id}' AND pesan_id='{$pesan_id}'");
     }
 
     // Konfirmasi bukti pembayaran yang telah dilakukan
     public function konfirmasiBukti($user_id = '', $pesan_id = '')
     {
-        DB::statement("UPDATE pesan SET status='4', diverifikasi=CURRENT_DATE() WHERE user_id='{$user_id}' AND pesan_id='{$pesan_id}'");
+        DB::statement("UPDATE pesan SET status='4', diverifikasi=CURRENT_DATE WHERE user_id='{$user_id}' AND pesan_id='{$pesan_id}'");
     }
 
     // Mengubah semua status produk yang berada dalam pesanan tersebut menjadi 1 
@@ -127,7 +127,7 @@ class PesanModel extends Model
     // Update Foto Bukti Pembayaran
     public function updatePhoto($user_id = '', $pesan_id = '', $data = '')
     {
-        DB::statement("UPDATE pesan SET photo='{$data}', status='3', dibayar=CURRENT_DATE() WHERE pesan.pesan_id='{$pesan_id}' AND pesan.user_id='{$user_id}'");
+        DB::statement("UPDATE pesan SET photo='{$data}', status='3', dibayar=CURRENT_DATE WHERE pesan.pesan_id='{$pesan_id}' AND pesan.user_id='{$user_id}'");
     }
 
     // Menambahkan data default pesan

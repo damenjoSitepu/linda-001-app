@@ -12,7 +12,7 @@
     @if($getProduk->photo == 'default.jpg')
     <img id="img" src="{{ asset("assets/user_img/product.png") }}" alt="">
     @else
-    <img id="img" src="{{ asset("storage/$getProduk->photo") }}" alt="">
+    <img id="img" src="{{ $getProduk->photo }}" alt="">
     @endif
 
     <h2 class="text-center mt-4 pt-4">{{ $getProduk->nama_produk }}</h2>

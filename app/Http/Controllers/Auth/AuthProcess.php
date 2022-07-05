@@ -74,7 +74,7 @@ class AuthProcess extends Controller
         // Validation
         $validated = $request->validate([
             'nama'          => 'required',
-            'username'      => 'required|unique:user',
+            'username'      => 'required|unique:pengguna',
             'email'         => 'required',
             'password'      => 'required'
         ]);

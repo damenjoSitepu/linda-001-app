@@ -30,7 +30,7 @@ class CartPages extends Controller
             'getCart'       => $this->Pesan->getDetailPesan(session()->get('login')['user_id'])
         ];
 
-        return view("Cart/index", $data);
+        return view("cart.index", $data);
     }
 
     // Halaman History

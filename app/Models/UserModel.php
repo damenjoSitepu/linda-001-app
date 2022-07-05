@@ -19,7 +19,7 @@ class UserModel extends Model
     // Mendapat seluruh data user kecuali admin
     public function getUsers()
     {
-        return DB::select("SELECT * FROM pengguna WHERE class != 1 ORDER BY user.user_id DESC");
+        return DB::select("SELECT * FROM pengguna WHERE class != 1 ORDER BY pengguna.user_id DESC");
     }
 
     // Ubah status user

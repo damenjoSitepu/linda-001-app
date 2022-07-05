@@ -11,7 +11,7 @@
         @if($pompa->produkphoto == 'default.jpg')
         <img class="images me-4 rounded" src="{{ asset("assets/user_img/product.png") }}" alt="">
         @else 
-        <img class="images me-4 rounded" src="{{ asset("storage/$pompa->produkphoto") }}" alt="">
+        <img class="images me-4 rounded" src="{{ $pompa->produkphoto }}" alt="">
         @endif
 
         <div class="loc1 me-4">

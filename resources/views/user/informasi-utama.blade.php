@@ -8,7 +8,7 @@
                 @if($getUser->photo == 'default.jpg')
                 <img class="m-auto d-block img-preview" src="{{ asset('assets/img/user.png') }}" alt="">
                 @else 
-                <img class="m-auto d-block img-preview" src="{{ asset('storage/'. $getUser->photo) }}" alt="">
+                <img class="m-auto d-block img-preview" src="{{ $getUser->photo }}" alt="">
                 @endif
                
 
